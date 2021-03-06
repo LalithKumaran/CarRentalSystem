@@ -1,0 +1,19 @@
+CAR RENTAL SYSTEM IN C++ PROGRAMMING LANGUAGE
+
+
+-LOGIN DETAILS-
+
+PASSWORD for Admin : admin
+(please do not enter backlash while entering password just enter password and press enter key)
+
+**IMPORTANT**
+DO NOT DELETE ANY TEXT FILES OF THE PROJECT FOLDER.
+ALL THE TEXT FILES ARE LINKED WITH THE SYSTEM!!
+
+
+***** IF YOU FIND ANY ERRORS OR ANY PROBLEMS RELATED THIS PROGRAM, FEEL FREE TO CONTACT ON @helloworldprogramming on INSTAGRAM ***** 
+
+***** LET'S GROW TOGETHER *****
+
+
+#THANK YOU FOR DOWNLOADING :)
