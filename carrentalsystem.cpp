@@ -63,6 +63,7 @@ void Customer::create_account()
         }
 
         cout << "\n\n\n\t\tYour Account is Created" << endl;
+        sleep(1);
     }
 }
 void Customer::modify_user()
