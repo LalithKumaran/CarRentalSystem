@@ -4,6 +4,8 @@
 #include <conio.h>  //Header file common in c language used in this program for _getch() function
 #include <unistd.h> //Header file that provides access to the POSIX operating system used this program for sleep() function
 #include <string.h> //Header file for string operations
+#include <vector>   //Header function for vector operations
+#include <string>   //Header function for string operations
 using namespace std;
 //Brought you by Lalith Kumaran
 
@@ -88,6 +90,8 @@ public:
     string choose_destination(); // Function to enter destination
     void calculate();            //Function to calculate rent;
     void show_Rent();            //Function to Show rent for car
+    string spacegiver(int i);    //Function to give space used in show rent function
+    string addon(int i);         //Function to give '/' symbol used in show rent function
 };
 int Journey::choose_car()
 {
@@ -199,32 +203,57 @@ void Journey::calculate()
         rentalfee = days * 75;
 }
 void Journey::show_Rent()
-{
-    cout << "\n\t\t                       Car Rental - Customer Invoice                  " << endl;
-    cout << "\t\t	///////////////////////////////////////////////////////////" << endl;
+{   
+    vector<string> g1;
+    vector<int> g2;
+    g1.push_back(customername);
+    g1.push_back(carmodel);
+    g1.push_back(billnumber);
+    g2.push_back(days);
+    g1.push_back(carnumber);
+    g2.push_back(rentalfee);
+    int u = g1[0].size();
+    for (int i = 1; i < g1.size(); i++)
+    {
+        if (g1[i].size() > u)
+        {
+            u = g1[i].size();
+        }
+    }
+    for (int i = 0; i < g2.size(); i++)
+    {
+        if (to_string(g2[i]).size() > u)
+        {
+            u = to_string(g2[i]).size();
+        }
+    }
+    Journey j;
+    
+    cout << "\n\t\t                   Car Rental - Customer Invoice                  " << endl;
+    cout << "\t\t        " << j.addon(u + 36) << endl;
     cout << "\t\t	| Bill No. :"
-         << "---------------------|" << setw(10) << "#Cnb81353"
+         << "---------------------|" << j.spacegiver(u - billnumber.size()) << billnumber
          << " |" << endl;
     cout << "\t\t	| Customer Name:"
-         << "-----------------|" << setw(10) << customername << " |" << endl;
+         << "-----------------|" << j.spacegiver(u - customername.size()) << customername << " |" << endl;
     cout << "\t\t	| Car Model :"
-         << "--------------------|" << setw(10) << carmodel << " |" << endl;
+         << "--------------------|" << j.spacegiver(u - carmodel.size()) << carmodel << " |" << endl;
     cout << "\t\t	| License No. :"
-         << "------------------|" << setw(10) << carnumber << " |" << endl;
+         << "------------------|" << j.spacegiver(u - (carnumber).size()) << carnumber << " |" << endl;
     cout << "\t\t	| Number of days :"
-         << "---------------|" << setw(10) << days << " |" << endl;
+         << "---------------|" << j.spacegiver(u - to_string(days).size()) << days << " |" << endl;
     cout << "\t\t	| Your Rental Amount is :"
-         << "--------|" << setw(10) << rentalfee << " |" << endl;
+         << "--------|" << j.spacegiver(u - to_string(rentalfee).size()) << rentalfee << " |" << endl;
     cout << "\t\t	| Caution Money :"
-         << "----------------|" << setw(10) << "0"
+         << "----------------|" << j.spacegiver(u - 1) << "0"
          << " |" << endl;
     cout << "\t\t	| Advanced :"
-         << "---------------------|" << setw(10) << "0"
+         << "---------------------|" << j.spacegiver(u - 1) << "0"
          << " |" << endl;
     cout << "\t\t	 ________________________________________________________" << endl;
     cout << "\n";
     cout << "\t\t	| Total Rental Amount is :"
-         << "-------|" << setw(10) << rentalfee << " |" << endl;
+         << "-------|" << j.spacegiver(u - to_string(rentalfee).size()) << rentalfee << " |" << endl;
     cout << "\t\t	 ________________________________________________________" << endl;
     cout << "\t\t	 # This is a computer generated invoce and it does not" << endl;
     cout << "\t\t	 require an authorised signture #" << endl;
@@ -249,6 +278,26 @@ void Journey::show_Rent()
             cout << str << endl;
     }
     inf.close();
+}
+string Journey::spacegiver(int count)
+{
+    string h;
+    for (int i = 0; i < count; i++)
+    {
+        h += " ";
+    }
+    //cout << h << 5 << endl;
+    return h;
+}
+string Journey::addon(int n)
+{
+    string h;
+    for (int i = 0; i < n; i++)
+    {
+        h += "/";
+    }
+    //cout << h << endl;
+    return h;
 }
 class Admin
 { //Admin Class
