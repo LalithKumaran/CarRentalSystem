@@ -82,6 +82,7 @@ class Journey : public Customer
 public:
     //Variables in Journey class
     int days = 0, rentalfee = 0;
+    string billnumber = " #Cnb81353l";
     string customername;
     string carmodel;
     string carnumber;
